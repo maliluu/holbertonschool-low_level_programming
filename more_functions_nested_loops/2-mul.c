@@ -1,8 +1,8 @@
 /**
- * mul - multiplier
- * @a: int to mult
- * @b: int to mult
- * Return: result of two
+ * mul - multiply 2 nuber
+ * @a:integer
+ * @b:integer
+ * Return: Success integer.
  */
 int mul(int a, int b)
 {
