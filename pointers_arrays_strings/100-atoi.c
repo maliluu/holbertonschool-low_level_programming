@@ -1,32 +1,47 @@
-#include <stdlib.h>
+#include "main.h"
 #include <stdio.h>
-#include <time.h>
+#include "2-strlen.c"
 
 /**
- * main - paso
+ * _atoi - converts string to integer
+ * @s: string to convert
  *
- * Return: int 0;
+ * Return: returns integer value
  */
-int main(void)
+int _atoi(char *s)
 {
-	char str[100];
-	int i = 0, randNum = 0, suma = 0;
+	int i;
+	int np = 0;
+	int c;
+	int d = 1;
+	int num = 0;
 
-	srand (time(NULL));
-
-
-	for (i = 0; suma <= 2644; i++)
+	for (i = 0; i < _strlen(s); i++)
 	{
-		randNum = (rand() % 25) + 65;
-
-		str[i] = randNum;
-		suma = suma + randNum;
+		if (!(s[i] >= '0' && s[i] <= '9') && c > 0)
+			break;
+		if (s[i] == '-')
+			np--;
+		if (s[i] == '+')
+			np++;
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			c++;
+		}
 	}
-
-	str[i++] = 2772 - suma;
-	str[i++] = '\0';
-
-	printf("%s\n", str);
-
-	return (0);
+	while (c > 0)
+	{
+		num += ((s[i - 1] - '0') * d);
+		i--;
+		c--;
+		d *= 10;
+	}
+	if (np >= 0)
+	{
+		num *= 1;
+	} else
+	{
+		num *= -1;
+	}
+	return (num);
 }
