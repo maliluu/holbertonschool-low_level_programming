@@ -1,1 +1,1 @@
-not empty read me file
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjRqZ-trdiEAxVIg_0HHSiyD9UQFnoECA8QAw&url=https%3A%2F%2Fwww.studysmarter.co.uk%2Fexplanations%2Fcomputer-science%2Fcomputer-programming%2Fnested-loops-in-c%2F%23%3A~%3Atext%3DNested%2520loops%2520help%2520in%2520allocating%2Csuch%2520as%2520matrices%2520and%2520tables.&usg=AOvVaw2yMly2WYegS5NMG3r3a4z5&opi=89978449
