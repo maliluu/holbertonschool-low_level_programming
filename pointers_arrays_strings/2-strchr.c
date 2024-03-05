@@ -20,3 +20,9 @@ char *_strchr(char *s, char c)
 
 	return (NULL);
 }
+
+/* Explanation: Let's say the function is searching for the character 'l'.
+The loop iterates until it reaches s[2] = 'l'.
+At this point, i will be 2 (index of the found character).
+(s + i) becomes (0x1000 + 2).
+In pointer arithmetic, adding 2 to s moves it two positions forward, pointing to the address 0x1002, which holds the character 'l'. */
