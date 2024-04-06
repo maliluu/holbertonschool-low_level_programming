@@ -1,65 +1,43 @@
 #include "lists.h"
-#include <stdlib.h>
 
 /**
- * len_node - list len
- *
- * @node:list
- * Return:unsigned int
- */
-unsigned int len_node(dlistint_t **node)
-{
-	unsigned int len = 0;
-	dlistint_t *start;
-
-	start = *node;
-	while (start != NULL)
-	{
-		len += 1;
-		start = start->next;
-	}
-	return (len);
-}
-
-/**
- * delete_dnodeint_at_index - delete node at give index
- * @head:list
- * @index:given index
- * Return: -1 or 0
+ * delete_dnodeint_at_index - delete node at index
+ * @head: double pointer to head of node
+ * @index: index to delete
+ * Return: list with deleted node, 1 on success, -1 on fail
  */
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *start;
-	unsigned int i;
-	unsigned int len;
-	len = len_node(&head);
+	dlistint_t *temp, *following = NULL;
+	unsigned int i = 0;
 
-	start = *head;
-	if (*head == NULL)
+	if ((*head) == NULL)
+	{
 		return (-1);
+	}
+	temp = (*head);
 	if (index == 0)
 	{
-		start = start->next;
-		free(*head);
-		*head = start;
-		if (start != NULL)
-			start->prev = NULL;
+		*head = temp->next;
+		if (temp->next != NULL)
+		{
+			temp->next->prev = NULL;
+		}
+		free(temp);
 		return (1);
 	}
-	for (i = 0; i <= index - 1; i++)
+	for (i = 0; i < (index - 1); i++)
 	{
-		start = start->next;
-		if (!start)
+		if (temp == NULL || temp->next == NULL)
+		{
 			return (-1);
+		}
+		temp = temp->next;
 	}
-	if (len - 1 == index)
-	{
-		start->prev->next = NULL;
-		free(start);
-		return (1);
-	}
-	start->prev->next = start->next;
-	start->next->prev = start->prev;
-	free(start);
+	following = temp->next->next;
+	if (temp->next->next != NULL)
+		temp->next->next->prev = temp;
+	free(temp->next);
+	temp->next = following;
 	return (1);
 }
