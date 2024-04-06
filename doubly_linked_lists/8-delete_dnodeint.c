@@ -7,8 +7,7 @@
  * @node:list
  * Return:unsigned int
  */
-
-unsigned int len_node(dlistint_t **node);
+unsigned int len_node(dlistint_t **node)
 {
 	unsigned int len = 0;
 	dlistint_t *start;
